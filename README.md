@@ -23,6 +23,7 @@
 
 ## Obscuring Your API Keys 
 - configuring, loading and using hidden keys 
+https://github.com/bkeepers/dotenv#sinatra-or-plain-ol-ruby
 
 ### Some APIs
 Google Matrix API
