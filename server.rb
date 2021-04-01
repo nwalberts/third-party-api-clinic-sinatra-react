@@ -3,6 +3,8 @@ require "sinatra/json"
 require "json"
 require "sinatra/reloader" if development?
 require "pry" if development? || test?
+require 'dotenv/load'
+
 # ---------------------------------------------------------------------
 require "faraday"
 # ------------------------------------------------------------------
@@ -23,18 +25,23 @@ get "/" do
   erb :home
 end
 
+# dotenv
+# ENV['MY_SECRET_KEY']
+
 get "/api/v1/gifs" do
-  # BASE_URL = "http://api.giphy.com/v1/gifs/search?api_key=YJX6Vs4kayAeOM4etN7P5ueL4ie4wU5D"
+  
+  BASE_URL = "http://api.giphy.com/v1/gifs/search?api_key=YJX6Vs4kayAeOM4etN7P5ueL4ie4wU5D"
   query = "steven-universe"
-  # response = Faraday.get("#{BASE_URL}&q=#{query}")
-  #
-  # parsed_response = JSON.parse(response.body)
-  # image_urls = []
-  # parsed_response["data"].each do |gif|
-  #   image_urls<< gif["images"]["preview_gif"]["url"]
-  # end
-  gifs_wrapper = GifsWrapper.new
-  image_urls = gifs_wrapper.retrieive_gifs(query)
+  response = Faraday.get("#{BASE_URL}&q=#{query}")
+  
+  parsed_response = JSON.parse(response.body)
+  image_urls = []
+  parsed_response["data"].each do |gif|
+    image_urls<< gif["images"]["preview_gif"]["url"]
+  end
+
+  # gifs_wrapper = GifsWrapper.new
+  # image_urls = gifs_wrapper.retrieive_gifs(query)
 
   content_type :json
   json image_urls

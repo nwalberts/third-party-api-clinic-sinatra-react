@@ -3,12 +3,14 @@ import React, { useState, useEffect } from 'react'
 const App = (props) => {
   const [gifs, setGifs] = useState([])
 
+  const fetchGifs = async () => {
+    const response = await fetch("/api/v1/gifs")
+    const parsedGifs = await response.json()
+    setGifs(parsedGifs)
+  }
+
   useEffect(() => {
-    fetch("/api/v1/gifs")
-      .then(response => response.json())
-      .then(bodyOfGifs => {
-        setGifs(bodyOfGifs)
-      })
+    // fetchGifs()
   }, [])
 
   const gifImages = gifs.map((gifLink) => {

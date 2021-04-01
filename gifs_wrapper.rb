@@ -1,4 +1,5 @@
 class GifsWrapper
+  # THIS SHOULD IDEALLY BE OBSCURED
   BASE_URL = "http://api.giphy.com/v1/gifs/search?api_key=YJX6Vs4kayAeOM4etN7P5ueL4ie4wU5D"
   # http://api.giphy.com/v1/gifs/search?api_key=YJX6Vs4kayAeOM4etN7P5ueL4ie4wU5D&q=steven-universe
 

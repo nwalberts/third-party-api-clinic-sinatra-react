@@ -21,6 +21,9 @@
   * Ideally make the request from the backend
   * Do not use fetch() if the API requires a key
 
+## Obscuring Your API Keys 
+- configuring, loading and using hidden keys 
+
 ### Some APIs
 Google Matrix API
 https://developers.google.com/maps/documentation/distance-matrix/start
@@ -55,5 +58,10 @@ https://www.reddit.com/r/webdev/comments/3wrswc/what_are_some_fun_apis_to_play_w
 Gov APIs
 https://www.data.gov/developers/apis
 
-40 Useful APIs for web devs
-https://www.webdesignerdepot.com/2011/07/40-useful-apis-for-web-designers-and-developers/
+
+## Geolocation
+https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
+
+## Google Maps: a weird beast 
+https://developers.google.com/maps/apis-by-platform#web_apis
+- API key CAN be published and shared 
