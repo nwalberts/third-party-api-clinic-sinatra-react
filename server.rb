@@ -29,15 +29,16 @@ end
 # ENV['MY_SECRET_KEY']
 
 get "/api/v1/gifs" do
-  
-  BASE_URL = "http://api.giphy.com/v1/gifs/search?api_key=YJX6Vs4kayAeOM4etN7P5ueL4ie4wU5D"
+
+  BASE_URL = "http://api.giphy.com/v1/gifs/search?api_key=#{ENV["MY_SECRET_KEY"]}"
   query = "steven-universe"
   response = Faraday.get("#{BASE_URL}&q=#{query}")
   
   parsed_response = JSON.parse(response.body)
+  
   image_urls = []
   parsed_response["data"].each do |gif|
-    image_urls<< gif["images"]["preview_gif"]["url"]
+    image_urls << gif["images"]["preview_gif"]["url"]
   end
 
   # gifs_wrapper = GifsWrapper.new
@@ -48,6 +49,6 @@ get "/api/v1/gifs" do
 end
 
 # If the path does not match any of the above routes, render the erb page.
-get "*" do
-  erb :home
-end
+# get "*" do
+#   erb :home
+# end

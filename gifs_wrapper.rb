@@ -1,13 +1,14 @@
 class GifsWrapper
   # THIS SHOULD IDEALLY BE OBSCURED
-  BASE_URL = "http://api.giphy.com/v1/gifs/search?api_key=YJX6Vs4kayAeOM4etN7P5ueL4ie4wU5D"
+  BASE_URL = "http://api.giphy.com/v1/gifs/search?api_key=#{ENV["MY_SECRET_KEY"]}"
   # http://api.giphy.com/v1/gifs/search?api_key=YJX6Vs4kayAeOM4etN7P5ueL4ie4wU5D&q=steven-universe
 
-  attr_reader :gif_urls
+  attr_reader :urls
 
   def initialize
     @urls = []
   end
+
 
   def retrieive_gifs(query)
     gifData = giphy_request(query)
@@ -30,5 +31,4 @@ class GifsWrapper
     end
     return image_urls
   end
-
 end

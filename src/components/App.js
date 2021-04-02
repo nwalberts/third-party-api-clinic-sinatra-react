@@ -10,7 +10,7 @@ const App = (props) => {
   }
 
   useEffect(() => {
-    // fetchGifs()
+    fetchGifs()
   }, [])
 
   const gifImages = gifs.map((gifLink) => {
